@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mega War 2</title>
+    <link type="text/css" href="app/css/app.css" >
+</head>
+<body onload="init()">
+    <div id="app">
+        <section id="homepage">
+            <h1>Mega War 2</h1>
+
+            <h2>Sélection du personnage</h2>
+            <ul id="character-selector" >
+                <li><a href="#" class="character" data-character="P1">Perso 1</a></li>
+                <li><a href="#" class="character" data-character="P2">Perso 2</a></li>
+                <li><a href="#" class="character" data-character="P3">Perso 3</a></li>
+                <li><a href="#" class="character" data-character="P4">Perso 4</a></li>
+            </ul>
+        </section>
+        <section id="game">
+
+        </section>
+    </div>
+
+    <script type="text/javascript" src="app/js/UIHomePage.js"></script>
+    <script type="text/javascript" src="app/js/app.js"></script>
+    <script type="text/javascript">
+        function init(){
+            const app = new App();
+            app.init();
+        }
+    </script>
+</body>
+</html>
