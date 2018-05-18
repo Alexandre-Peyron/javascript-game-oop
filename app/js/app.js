@@ -1,24 +1,44 @@
 class App {
 
+    /**
+     * @constructor
+     */
     constructor() {
-        this.gameStarted = false;
-
-        this.characterGamer1 = null;
-        this.characterGamer2 = null;
+        this.el = null;              // Parent DOM Element
+        this.gameStarted = false;    // Game is running or not
+        this.characterGamer1 = null; // character chosen by player 1
+        this.characterGamer2 = null; // character chosen by player 2
     }
 
-    init() {
+    /**
+     * Init Application
+     */
+    start() {
+        this.initDOMElements();
+        this.initEvents();
+
         this.UIhomePage = new UIHomePage(this);
 
         this.loop();
     }
 
-    render() {
-        if (!this.gameStarted) {
-            this.UIhomePage.render();
-        }
+    /**
+     * Link to DOM elements
+     */
+    initDOMElements() {
+        this.el = document.querySelector('#app');
     }
 
+    /**
+     * Events
+     */
+    initEvents() {
+
+    }
+
+    /**
+     * Eternal loop
+     */
     loop() {
         var self = this;
 
@@ -28,6 +48,19 @@ class App {
         })
     }
 
+    /**
+     * Render App and all views
+     */
+    render() {
+        if (!this.gameStarted) {
+            this.UIhomePage.render();
+        }
+    }
+
+    /**
+     *
+     * @param character
+     */
     onChooseCharacter(character) {
 
         // Second click on character, remove data
