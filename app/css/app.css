@@ -127,23 +127,32 @@ body, html {
     margin: 0 auto;
 }
 
+
+.rocket01 .fire, .rocket02 .fire, .rocket03 .fire, .rocket04 .fire {
+    display: none;
+}
+
 #character-selector li a:hover .rocket01 .fire {
-    animation: rocket01fire 0.8s infinite;
+    display: block;
+    animation: rocketFireHome 0.8s infinite;
 }
 
 #character-selector li a:hover .rocket02 .fire {
-    animation: rocket01fire 4s infinite;
+    display: block;
+    animation: rocketFireHome 4s infinite;
 }
 
 #character-selector li a:hover .rocket03 .fire {
-    animation: rocket01fire 0.4s infinite;
+    display: block;
+    animation: rocketFireHome 0.4s infinite;
 }
 
 #character-selector li a:hover .rocket04 .fire {
-    animation: rocket01fire 2s infinite;
+    display: block;
+    animation: rocketFireHome 2s infinite;
 }
 
-@keyframes rocket01fire {
+@keyframes rocketFireHome {
     0% {
         transform: translate(0, 0);
     }
