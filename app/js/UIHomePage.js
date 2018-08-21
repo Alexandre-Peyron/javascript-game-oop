@@ -47,8 +47,10 @@ class UIHomePage {
     onChooseCharacter(event) {
         event.preventDefault();
 
-        let characterChosen = event.target.dataset.character;
+        let characterChosen = event.currentTarget.dataset.character;
         this.app.onChooseCharacter(characterChosen);
+
+        this.render();
     }
 
     /**
@@ -64,7 +66,25 @@ class UIHomePage {
      * Render view
      */
     render() {
-        // check if players select characters
-        // change state on btn-start-game,
+        // Update buttons states
+        for (let i = 0; i < this.charactersList.length; i++) {
+            let a = this.charactersList[i];
+
+            // Default state
+            a.classList.remove('selected');
+
+            // Is selected
+            if (a.classList.contains(this.app.characterGamer1) || a.classList.contains(this.app.characterGamer2)) {
+                a.classList.add('selected');
+            }
+        }
+
+        // Default state
+        this.buttonStartGame.classList.add('disable');
+
+        // If each character is chosen
+        if (this.app.characterGamer1 != null && this.app.characterGamer2 != null) {
+           this.buttonStartGame.classList.remove('disable');
+        }
     }
 }
