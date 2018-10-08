@@ -59,7 +59,7 @@ class UIHomePage {
      * @param event
      */
     onStartGame(event) {
-        console.log('On click btn start')
+        this.app.startGame();
     }
 
     /**
@@ -86,5 +86,12 @@ class UIHomePage {
         if (this.app.characterGamer1 != null && this.app.characterGamer2 != null) {
            this.buttonStartGame.classList.remove('disable');
         }
+    }
+
+    /**
+     * Remove Home Page from DOM
+     */
+    remove() {
+        this.el.parentElement.removeChild(this.el);
     }
 }

@@ -5,7 +5,12 @@ class App {
      */
     constructor() {
         this.el = null;              // Parent DOM Element
+
+        this.UIhomePage = null;
+
+        this.game = null;
         this.gameStarted = false;    // Game is running or not
+
         this.characterGamer1 = null; // character chosen by player 1
         this.characterGamer2 = null; // character chosen by player 2
     }
@@ -49,11 +54,25 @@ class App {
     }
 
     /**
+     * Remove Home Page
+     * Create and start game
+     */
+    startGame() {
+        this.UIhomePage.remove();
+
+        this.game = new Game(this);
+        this.gameStarted = true;
+    }
+
+    /**
      * Render App and all views
      */
     render() {
         if (!this.gameStarted) {
             this.UIhomePage.render();
+        }
+        else {
+            this.game.render();
         }
     }
 
@@ -62,7 +81,6 @@ class App {
      * @param character
      */
     onChooseCharacter(character) {
-
         // Second click on character, remove data
         if (this.characterGamer1 === character) {
             this.characterGamer1 = null;
@@ -82,8 +100,5 @@ class App {
         else if (this.characterGamer2 == null) {
             this.characterGamer2 = character;
         }
-
-        console.log('Player 1 is :', this.characterGamer1);
-        console.log('Player 2 is :', this.characterGamer2);
     }
 }
