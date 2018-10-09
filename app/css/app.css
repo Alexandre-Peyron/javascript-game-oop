@@ -134,30 +134,30 @@ body, html {
 }
 
 
-.rocket01 .fire, .rocket02 .fire, .rocket03 .fire, .rocket04 .fire {
+.Rocket01 .fire, .Rocket02 .fire, .Rocket03 .fire, .Rocket04 .fire {
     display: none;
 }
 
-#character-selector li a:hover .rocket01 .fire,
-#character-selector li a.selected .rocket01 .fire {
+#character-selector li a:hover .Rocket01 .fire,
+#character-selector li a.selected .Rocket01 .fire {
     display: block;
     animation: rocketFireHome 0.8s infinite;
 }
 
-#character-selector li a:hover .rocket02 .fire,
-#character-selector li a.selected .rocket02 .fire {
+#character-selector li a:hover .Rocket02 .fire,
+#character-selector li a.selected .Rocket02 .fire {
     display: block;
     animation: rocketFireHome 4s infinite;
 }
 
-#character-selector li a:hover .rocket03 .fire,
-#character-selector li a.selected .rocket03 .fire {
+#character-selector li a:hover .Rocket03 .fire,
+#character-selector li a.selected .Rocket03 .fire {
     display: block;
     animation: rocketFireHome 0.4s infinite;
 }
 
-#character-selector li a:hover .rocket04 .fire,
-#character-selector li a.selected .rocket04 .fire {
+#character-selector li a:hover .Rocket04 .fire,
+#character-selector li a.selected .Rocket04 .fire {
     display: block;
     animation: rocketFireHome 2s infinite;
 }
