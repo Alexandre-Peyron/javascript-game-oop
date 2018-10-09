@@ -29,13 +29,15 @@ class Game {
      * Create space ship views
      */
     createSpaceShip() {
-        this.spaceShip01 = new SpaceShip(
+        const classes = { Rocket01, Rocket02, Rocket03, Rocket04 };
+
+        this.spaceShip01 = new classes[this.app.characterGamer1](
             this,
             this.app.characterGamer1,
             new Keyboard('z', 'q', 's', 'd')
         );
 
-        this.spaceShip02 = new SpaceShip(
+        this.spaceShip02 = new classes[this.app.characterGamer2](
             this,
             this.app.characterGamer2,
             new Keyboard('ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight')

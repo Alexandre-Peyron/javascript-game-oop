@@ -21,6 +21,8 @@ class SpaceShip {
         this.y = 0;
         this.rotation = 0;
         this.scale = 0.3;
+
+        this.rotationStep = 2;
         this.speed = 0.2;
 
         this.velX = 0;  // Velocity
@@ -87,11 +89,11 @@ class SpaceShip {
 
     move() {
         if (this.keyboard.moveLeft) {
-            this.rotation -= 2;
+            this.rotation -= this.rotationStep;
         }
 
         if (this.keyboard.moveRight) {
-            this.rotation += 2;
+            this.rotation += this.rotationStep;
         }
 
         if (this.keyboard.moveFoward) {
