@@ -16,17 +16,6 @@ class Rocket03 extends SpaceShip{
     }
 
     /**
-     * On load graphic file
-     *
-     * @param xhr
-     */
-    onLoadSpaceShip(xhr) {
-        super.onLoadSpaceShip(xhr);
-
-        this.el.classList.add(this.rocketName);
-    }
-
-    /**
      * Render view
      */
     render() {
