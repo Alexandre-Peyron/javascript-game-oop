@@ -26,6 +26,9 @@ class SpaceShip {
         this.velX = 0;  // Velocity
         this.velY = 0;  // Velocity
 
+        this.width = 0;
+        this.height = 0;
+
         this.offsetRotation = 45; // Origin image is 45° oriented
         this.offsetX = 0;
         this.offsetY = 0;
@@ -72,10 +75,13 @@ class SpaceShip {
 
         this.svg = this.el.querySelector('svg');
 
-        this.offsetX = ((this.el.offsetWidth * this.scale) / 2);
-        this.offsetY = ((this.el.offsetHeight * this.scale) / 2);
-
         this.game.el.appendChild(this.el);
+
+        this.width = this.svg.getBoundingClientRect().width;
+        this.height = this.svg.getBoundingClientRect().height;
+
+        this.offsetX = ((this.width * this.scale) / 2);
+        this.offsetY = ((this.height * this.scale)/ 2);
     }
 
     /**
@@ -97,8 +103,8 @@ class SpaceShip {
         if (this.keyboard.moveFoward) {
             let angle = 2 * Math.PI * (this.rotation / 360);
 
-            this.velX += Math.cos(angle) * this.speed + this.offsetX;
-            this.velY += Math.sin(angle) * this.speed + this.offsetY;
+            this.velX += Math.cos(angle) * this.speed;
+            this.velY += Math.sin(angle) * this.speed;
         }
 
         if (this.keyboard.moveBack) {
@@ -113,9 +119,31 @@ class SpaceShip {
         this.x += this.velX ;
         this.y += this.velY;
 
+        this.checkLimit();
+
         this.el.style.left = this.x + 'px';
         this.el.style.top = this.y + 'px';
         this.el.style.transformOrigin = 'center';
         this.svg.style.transform = 'rotate('+ this.getRotation() +'deg) scale('+this.scale+')';
+    }
+
+    /**
+     * Check limit for space ship position
+     * Transfer to other side if necessary
+     */
+    checkLimit() {
+        if ( this.x < -(this.width)) {
+            this.x = window.innerWidth;
+        }
+        else if ( this.x > window.innerWidth) {
+            this.x = -this.width + 1;
+        }
+
+        if ( this.y < -(this.height)) {
+            this.y = window.innerHeight;
+        }
+        else if ( this.y > window.innerHeight) {
+            this.y = -this.height + 1;
+        }
     }
 }

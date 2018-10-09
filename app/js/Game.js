@@ -35,11 +35,11 @@ class Game {
             new Keyboard('z', 'q', 's', 'd')
         );
 
-        this.spaceShip02 = new SpaceShip(
-            this,
-            this.app.characterGamer2,
-            new Keyboard('ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight')
-        );
+        // this.spaceShip02 = new SpaceShip(
+        //     this,
+        //     this.app.characterGamer2,
+        //     new Keyboard('ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight')
+        // );
 
         // Default position and rotation
         this.spaceShip01.x = 10;
@@ -47,17 +47,20 @@ class Game {
         this.spaceShip01.rotation = 90;
 
         // Default position and rotation
-        this.spaceShip02.x = window.innerWidth - 300;
-        this.spaceShip02.y = window.innerHeight - 300;
-        this.spaceShip02.rotation = -90;
+        // this.spaceShip02.x = window.innerWidth - 300;
+        // this.spaceShip02.y = window.innerHeight - 300;
+        // this.spaceShip02.rotation = -90;
     }
 
     /**
      * Render view
      */
     render() {
-        if (this.spaceShip01 != null && this.spaceShip02 != null) {
+        if (this.spaceShip01 != null) {
             this.spaceShip01.render();
+        }
+
+        if (this.spaceShip02 != null) {
             this.spaceShip02.render();
         }
     }
