@@ -31,6 +31,8 @@ class SpaceShip {
         this.width = 0;
         this.height = 0;
 
+        this.isMoving = false;
+
         this.offsetRotation = 45; // Origin image is 45° oriented
         this.offsetX = 0;
         this.offsetY = 0;
@@ -88,6 +90,8 @@ class SpaceShip {
     }
 
     move() {
+        this.isMoving = false;
+
         if (this.keyboard.moveLeft) {
             this.rotation -= this.rotationStep;
         }
@@ -97,6 +101,8 @@ class SpaceShip {
         }
 
         if (this.keyboard.moveFoward) {
+            this.isMoving = true;
+
             let angle = 2 * Math.PI * (this.rotation / 360);
 
             this.velX += Math.cos(angle) * this.speed;
@@ -131,6 +137,7 @@ class SpaceShip {
         this.el.style.left = this.x + 'px';
         this.el.style.top = this.y + 'px';
         this.el.style.transformOrigin = 'center';
+        this.el.classList.toggle('is-moving', this.isMoving);
         this.svg.style.transform = 'rotate('+ this.getRotation() +'deg) scale('+this.scale+')';
     }
 

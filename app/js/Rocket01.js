@@ -13,6 +13,26 @@ class Rocket01 extends SpaceShip{
         this.rocketName = 'Rocket01';
         this.speed = 0.2;
         this.rotationStep = 5;
+
+        this.isTurnLeft = false;
+        this.isTurnRight = false;
+    }
+
+
+    animateFireSide() {
+        this.isTurnLeft = false;
+        this.isTurnRight = false;
+
+        if (this.keyboard.moveLeft) {
+            this.isTurnRight = true;
+        }
+
+        if (this.keyboard.moveRight) {
+            this.isTurnLeft = true;
+        }
+
+        this.el.classList.toggle('is-turning-left', this.isTurnLeft);
+        this.el.classList.toggle('is-turning-right', this.isTurnRight);
     }
 
     /**
@@ -24,5 +44,7 @@ class Rocket01 extends SpaceShip{
         }
 
         super.render();
+
+        this.animateFireSide();
     }
 }

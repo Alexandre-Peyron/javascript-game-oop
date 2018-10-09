@@ -134,28 +134,44 @@ body, html {
 }
 
 
-.Rocket01 .fire, .Rocket02 .fire, .Rocket03 .fire, .Rocket04 .fire {
+.Rocket01 .fire,
+.Rocket01 .fire-left,
+.Rocket01 .fire-right,
+.Rocket02 .fire,
+.Rocket03 .fire,
+.Rocket04 .fire {
     display: none;
 }
 
+.Rocket01.is-moving .fire,
 #character-selector li a:hover .Rocket01 .fire,
 #character-selector li a.selected .Rocket01 .fire {
     display: block;
     animation: rocketFireHome 0.8s infinite;
 }
 
+.Rocket01.is-turning-left .fire-left,
+.Rocket01.is-turning-right .fire-right
+{
+    display: block;
+    animation: rocketFireHome 0.8s infinite;
+}
+
+.Rocket02.is-moving .fire,
 #character-selector li a:hover .Rocket02 .fire,
 #character-selector li a.selected .Rocket02 .fire {
     display: block;
     animation: rocketFireHome 4s infinite;
 }
 
+.Rocket03.is-moving .fire,
 #character-selector li a:hover .Rocket03 .fire,
 #character-selector li a.selected .Rocket03 .fire {
     display: block;
     animation: rocketFireHome 0.4s infinite;
 }
 
+.Rocket04.is-moving .fire,
 #character-selector li a:hover .Rocket04 .fire,
 #character-selector li a.selected .Rocket04 .fire {
     display: block;
