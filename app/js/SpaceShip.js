@@ -38,6 +38,7 @@ class SpaceShip {
 
     /**
      * Getter for rotation
+     * (Sum between current rotation and image init position)
      *
      * @return {number}
      */
@@ -73,9 +74,9 @@ class SpaceShip {
         this.el.classList.add(this.rocketName);
         this.el.innerHTML = xhr.responseText;
 
-        this.svg = this.el.querySelector('svg');
-
         this.game.el.appendChild(this.el);
+
+        this.svg = this.el.querySelector('svg');
 
         this.width = this.svg.getBoundingClientRect().width;
         this.height = this.svg.getBoundingClientRect().height;
@@ -84,14 +85,7 @@ class SpaceShip {
         this.offsetY = ((this.height * this.scale)/ 2);
     }
 
-    /**
-     * Render view
-     */
-    render() {
-        if (this.el == null) {
-            return;
-        }
-
+    move() {
         if (this.keyboard.moveLeft) {
             this.rotation -= 2;
         }
@@ -118,6 +112,17 @@ class SpaceShip {
 
         this.x += this.velX ;
         this.y += this.velY;
+    }
+
+    /**
+     * Render view
+     */
+    render() {
+        if (this.el == null) {
+            return;
+        }
+
+        this.move();
 
         this.checkLimit();
 

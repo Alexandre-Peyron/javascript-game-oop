@@ -3,10 +3,10 @@ class Keyboard {
     /**
      * @constructor
      *
-     * @param topKey String
-     * @param leftKey String
-     * @param bottomKey String
-     * @param rightKey String
+     * @param topKey String - Button top
+     * @param leftKey String - Button left
+     * @param bottomKey String - Button down
+     * @param rightKey String - Button right
      */
     constructor(topKey, leftKey, bottomKey, rightKey) {
         this.topKey = topKey;
