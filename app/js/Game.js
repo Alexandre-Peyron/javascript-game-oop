@@ -34,13 +34,13 @@ class Game {
         this.spaceShip01 = new classes[this.app.characterGamer1](
             this,
             this.app.characterGamer1,
-            new Keyboard('z', 'q', 's', 'd')
+            new Keyboard('z', 'q', 's', 'd', 'e')
         );
 
         this.spaceShip02 = new classes[this.app.characterGamer2](
             this,
             this.app.characterGamer2,
-            new Keyboard('ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight')
+            new Keyboard('ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight', '=')
         );
 
         // Default position and rotation

@@ -10,6 +10,7 @@ class SpaceShip {
     constructor(game, rocketName, keyboard) {
         this.game = game;
         this.rocketName = rocketName;
+        this.number = this.rocketName.slice(6);
 
         this.keyboard = keyboard;
 
@@ -36,6 +37,8 @@ class SpaceShip {
         this.offsetRotation = 45; // Origin image is 45° oriented
         this.offsetX = 0;
         this.offsetY = 0;
+
+        this.missiles = [];
 
         this.loadSvgView();
     }
@@ -89,6 +92,9 @@ class SpaceShip {
         this.offsetY = ((this.height * this.scale)/ 2);
     }
 
+    /**
+     * Move Spaceship
+     */
     move() {
         this.isMoving = false;
 
@@ -123,12 +129,39 @@ class SpaceShip {
     }
 
     /**
+     * Check if shooting
+     * Create new missile
+     */
+    shoot() {
+        if (this.keyboard.shoot) {
+            console.log('shoow')
+            this.keyboard.shoot = false;
+            this.missiles.push(new SpaceMissile(this.game, this))
+        }
+    }
+
+    /**
+     * Render list of missiles
+     */
+    renderMissiles() {
+        for(let i = 0, l = this.missiles.length; i < l; i++) {
+            if (this.missiles[i]) {
+                this.missiles[i].render();
+            }
+        }
+    }
+
+    /**
      * Render view
      */
     render() {
         if (this.el == null) {
             return;
         }
+
+        this.shoot();
+
+        this.renderMissiles();
 
         this.move();
 
@@ -138,7 +171,8 @@ class SpaceShip {
         this.el.style.top = this.y + 'px';
         this.el.style.transformOrigin = 'center';
         this.el.classList.toggle('is-moving', this.isMoving);
-        this.svg.style.transform = 'rotate('+ this.getRotation() +'deg) scale('+this.scale+')';
+        this.el.style.transform = 'scale('+this.scale+')';
+        this.svg.style.transform = 'rotate('+ this.getRotation() +'deg)';
     }
 
     /**

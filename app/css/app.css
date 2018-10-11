@@ -269,3 +269,31 @@ body, html {
     width: 200px;
     height: 200px;
 }
+
+.space-missile {
+    position: absolute;
+}
+
+.spaceMissile01 {
+    background: url("../assets/missiles/spaceMissile01.png") no-repeat;
+    width: 19px;
+    height: 40px;
+}
+
+.spaceMissile02 {
+    background: url("../assets/missiles/spaceMissile02.png") no-repeat;
+    width: 19px;
+    height: 40px;
+}
+
+.spaceMissile03 {
+    background: url("../assets/missiles/spaceMissile03.png") no-repeat;
+    width: 18px;
+    height: 51px;
+}
+
+.spaceMissile04 {
+    background: url("../assets/missiles/spaceMissile04.png") no-repeat;
+    width: 16px;
+    height: 22px;
+}

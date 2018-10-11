@@ -7,17 +7,20 @@ class Keyboard {
      * @param leftKey String - Button left
      * @param bottomKey String - Button down
      * @param rightKey String - Button right
+     * @param shootKey String - Button Shoot
      */
-    constructor(topKey, leftKey, bottomKey, rightKey) {
+    constructor(topKey, leftKey, bottomKey, rightKey, shootKey) {
         this.topKey = topKey;
         this.leftKey = leftKey;
         this.bottomKey = bottomKey;
         this.rightKey = rightKey;
+        this.shootKey = shootKey;
 
         this.moveFoward = false;
         this.moveBack = false;
         this.moveLeft = false;
         this.moveRight = false;
+        this.shoot = false;
 
         this.initKeyboardListener();
     }
@@ -70,6 +73,9 @@ class Keyboard {
                 break;
             case this.rightKey:
                 this.moveRight  = false;
+                break;
+            case this.shootKey:
+                this.shoot = true;
                 break;
         }
     }
